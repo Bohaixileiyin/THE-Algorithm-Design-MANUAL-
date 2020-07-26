@@ -40,7 +40,6 @@ void bfs(graph *g, int start){
     while(!q.empty()){
         int v = q.front();q.pop();
         process_vertex_early(v);
-        processed[v] = true;
         edgenode *p = g->edges[v];
         while(p){
             int y = p->y;
@@ -55,6 +54,7 @@ void bfs(graph *g, int start){
             p = p->next;
         }
         process_vertex_late(v);
+        processed[v] = true;
     }
 }
 //---------------------------------寻找路径-----------------------------------
